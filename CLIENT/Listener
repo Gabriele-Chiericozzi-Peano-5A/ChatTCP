@@ -33,7 +33,7 @@ public class Listener implements Runnable{
             while ((testo = in.readLine()) != null){
                 System.out.println(testo);
                 
-                if(testo.contains("Bye.")){
+                if(testo.contains("exit")){
                     client.close();
                     System.exit(0);
                     break;
