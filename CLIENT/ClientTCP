@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.Scanner;
 
 
 /**
@@ -21,7 +22,8 @@ public class ClientTCP {
         // TODO code application logic here
         String indirizzoIP = "127.0.0.1";
         int numPort = 1234;
-
+        Scanner sc = new Scanner(System.in);
+        String username = "";
         try {
             InetAddress address = InetAddress.getByName(indirizzoIP);
             
@@ -44,11 +46,16 @@ public class ClientTCP {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
             String userInput;
             
+            
+            
+            System.out.println("Inserisci il tuo username: ");
+            System.out.println("> ");
+            username = sc.nextLine();
             System.out.println("Inserisci il tuo messaggio: ");
             System.out.println(">");
             while((userInput = buffer.readLine()) != null){
                 out.println(userInput);
-                System.out.println("Messaggio spedito al server: " + userInput);
+                System.out.println("Messaggio spedito al server: " + username + ":" + userInput);
                 System.out.println(">");
             }    
             
